@@ -1,3 +1,5 @@
+import Mathlib.Tactic.FinCases
+
 universe u
 
 abbrev Relation (A : Type u) (B : Type u) := A → B → Prop
@@ -60,7 +62,6 @@ theorem h_20 : (2: Fin 4) = (0 : Fin 4) → False := by
 intro h
 apply Fin.noConfusion h
 intro h2
-repeat rw[Nat.mod_succ] at h2
 rw[Nat.zero_mod] at h2
 apply Nat.noConfusion h2
 
@@ -71,10 +72,10 @@ theorem h_21 : (2: Fin 4) = (1 : Fin 4) → False := by
 intro h
 apply Fin.noConfusion h
 intro h2
-repeat rw[Nat.mod_succ] at h2
 rw[Nat.one_mod] at h2
 rw[h_24] at h2
-simp_all
+apply Nat.succ_ne_self at h2
+exact h2
 
 example: Symm R2 := by
 simp[Symm, R2]
@@ -96,6 +97,12 @@ match x with
   | 2 => simp at h
   | 3 => simp at h
 
+example: Symm R2 := by
+simp[Symm, R2]
+intro x y
+fin_cases x <;>
+  fin_cases y <;>
+    simp
 
 
 example: ¬(AntiSym R2) := by

@@ -1,4 +1,3 @@
-import mathlib
 -- LEAN proofs of example 7 from Rosen. 9.1
 -- includes Def. 3 -- reflexive
 
@@ -6,7 +5,7 @@ universe u
 
 def Refl {A : Type u} (r : A → A → Prop) := ∀ x : A, r x x
 
-abbrev Relation (A : Type u) (B : Type u) := A → B → Prop
+def Relation (A : Type u) (B : Type u) := A → B → Prop
 
 
 def R1 (x y : Fin 4) := match x with
