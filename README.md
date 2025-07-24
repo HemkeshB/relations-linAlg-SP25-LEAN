@@ -1,1 +1,2 @@
-[lean-WXML.pdf](https://github.com/user-attachments/files/21413909/lean-WXML.pdf)
+
+![lean-WXML](https://github.com/user-attachments/assets/29dcae88-bc16-4463-8f43-6dcfb96522cd)
